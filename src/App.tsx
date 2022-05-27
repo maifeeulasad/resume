@@ -1,6 +1,6 @@
 import React from 'react';
 
-const resumeUrl = "./resume_maifeeulasad.pdf";
+const resumeUrl = "https://maifeeulasad.github.io/assets/resume/resume_maifeeulasad.pdfs";
 
 const App = () => <embed width="100%" height="100%" src={resumeUrl} type="application/pdf"/>;
 
