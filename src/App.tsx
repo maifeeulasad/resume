@@ -1,17 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          React TS + Vite
-        </p>
-      </header>
-    </div>
-  );
-}
+const App = () => <embed width="100%" height="100%" src="https://maifeeulasad.github.io/resume/resume_maifeeulasad.pdf" type="application/pdf"/>;
 
 export default App;
