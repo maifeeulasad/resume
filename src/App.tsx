@@ -6,7 +6,7 @@ import { MobileResume } from "./component/resume/MobileResume";
 // const resumeUrl = "https://maifeeulasad.github.io/assets/resume/resume_maifeeulasad.pdf";
 // contains info about Endimension
 const resumeUrl =
-  "https://maifeeulasad.github.io/assets/resume/Resume-Maifee_Ul_Asad-Single_Page-2022_11_10.pdf";
+  "https://maifeeulasad.github.io/assets/resume/Maifee%20Ul%20Asad%20-%20Resume%20-%202023.02.02.pdf";
 
 const App = () => {
   const isDesktop = () => {
