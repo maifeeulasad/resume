@@ -28,7 +28,8 @@
     "serve": "vite preview",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "postinstall": "node scripts/download-pdfjs-cdn.js"
+    "postinstall": "node scripts/download-pdfjs-cdn.js",
+    "postbuild": "node scripts/copy-static-cdn.js"
   },
   "eslintConfig": {
     "extends": [
