@@ -27,7 +27,8 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "postinstall": "node scripts/download-pdfjs-cdn.js"
   },
   "eslintConfig": {
     "extends": [
