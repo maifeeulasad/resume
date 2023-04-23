@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { osCheck, OsType } from "os-check";
 import * as pdfjs from 'pdfjs-dist';
 import { PDFPageProxy } from 'pdfjs-dist';
 
@@ -7,6 +8,7 @@ interface IPdfViewer{
 }
 
 const PdfViewer = ({url}: IPdfViewer) => {
+  const [loading, setLoading] = useState<boolean>(true);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   
   useEffect(() => {
@@ -27,19 +29,34 @@ const PdfViewer = ({url}: IPdfViewer) => {
       viewport,
     });
   };
-
   
   useEffect(() => {
+    setLoading(true)
     pdfjs.getDocument({ url }).promise.then(
       pdfDocument => {
         pdfDocument.getPage(1).then(
-          page => renderPDF(page)
+          (page) => {
+            renderPDF(page);
+            setLoading(false);
+          }
         );
       }
     );
   }, [canvasRef, url]);
 
-  return <canvas ref={canvasRef} />
+  const isDesktop = [OsType.Linux, OsType.MacOS, OsType.Windows].includes(osCheck())
+
+  if (isDesktop) {
+    return <embed width="100%" height="100%" src={url} type="application/pdf" />
+  } else {
+    return <>
+      <canvas ref={canvasRef} style={{ display: 'block', width: '100%' }} />
+      <dialog open={loading}>
+        Loading
+      </dialog>
+    </>
+  }
+  
 }
 
 export {PdfViewer}
