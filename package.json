@@ -26,7 +26,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "predeploy": "yarn build",
+    "predeploy": "pnpm build",
     "deploy": "gh-pages -d build",
     "postinstall": "node scripts/download-pdfjs-cdn.js",
     "postbuild": "node scripts/copy-static-cdn.js"
